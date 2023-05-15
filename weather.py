@@ -24,11 +24,15 @@ def get_weather(city):
 
 win = Tk()
 win.title("Weather")
-win.geometry('500x250')
+win.geometry('500x350')
+win.configure(background='#1AA7EC')
+
+title = Label(win,text='Weather Info',font=('bold', 20), background='#1AA7EC', foreground='white')
+title.pack(ipady=15)
 
 city_txt = StringVar()
 city_entry = Entry(win, textvariable=city_txt)
-city_entry.pack()
+city_entry.pack(ipadx=20, ipady=3)
 
 def search_weather():
     city = city_txt.get()
@@ -40,16 +44,16 @@ def search_weather():
     else:
         messagebox.showerror('Error','City not found')
 
-search_btn = Button(win, text='Search', width=12, command=search_weather)
-search_btn.pack()
+search_btn = Button(win, text='Search', width=12, background='red',foreground='white', command=search_weather)
+search_btn.pack(pady=10)
 
-location_lbl  = Label(win, text='City', font=('bold', 20))
+location_lbl  = Label(win, text='City', font=('bold', 20), background='#1AA7EC', foreground='white')
 location_lbl.pack()
 
-temp_lbl = Label(win, text='Temperature', font=('bold', 30))
-temp_lbl.pack()
+temp_lbl = Label(win, text='Temperature', font=('bold', 30),foreground='red', background='#1AA7EC')
+temp_lbl.pack(ipady=15)
 
-weather_lbl = Label(win, text='Weather', font=(10))
+weather_lbl = Label(win, text='Weather', font=(10), background='#1AA7EC', foreground='white')
 weather_lbl.pack()
 
 win.mainloop()
